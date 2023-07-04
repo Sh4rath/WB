@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            padding: 5px;
+            background-color: black;
+            color: white ;
+            border-color: yellow;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <p id="para">Lorem ipsum, dolor sit amet consectetur <br>
+        Lorem ipsum, dolor sit amet consectetur<br>
+        Lorem ipsum, dolor sit amet consectetur<br>
+        Lorem ipsum, dolor sit amet consectetur<br>
+        Lorem ipsum, dolor sit amet consectetur<br>
+    </p><br>
+    <button id="btn" onclick="toggleHide()">Show/Hide</button>
+    <br>
+    <input id="myInput"><br>
+    <p id="myOutput"></p>
+
+    <script>
+        // let btn=document.getElementById('btn');
+        // btn.addEventListener('Click',toggleHide());
+        function toggleHide()
+        {
+            let para=document.getElementById('para')
+            if(para.style.display != 'none')
+                para.style.display ='none';
+            else
+                para.style.display ='block';
+        }
+        let para=document.getElementById('para');
+        let myInput=document.getElementById('myInput');
+        para.addEventListener('mouseover',()=>{
+            para.style.color="yellow";
+            para.style.fontWeight="bold";
+        })
+        para.addEventListener('mouseout',()=>{
+            para.style.color="black";
+            para.style.fontWeight="normal";
+        })
+        myInput.addEventListener('change',()=>{
+            let myOutput=document.getElementById('myOutput');
+            myOutput.innerHTML=myInput.value;
+        })
+        myInput.addEventListener('keydown',(event)=>{
+            var keycode= event.keycode || event.which;
+            if(keycode==13)
+                console.log("Enter Key Pressed")
+        })
+
+    </script>
+</body>
+</html>
